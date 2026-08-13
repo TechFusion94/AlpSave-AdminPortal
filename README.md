@@ -52,6 +52,13 @@ This project runs via Docker Compose.
    ```
 4. The app is available at `http://localhost:<WEB_PORT>` and phpMyAdmin at `http://localhost:<PMA_PORT>`
 5. Import `storage/site/data/dump.sql` via phpMyAdmin (or the MySQL CLI) to seed the database with demo users and pricing plans
+6. Log in with the seeded demo account:
+
+   | Username | Password |
+   |----------|----------|
+   | `testadmin` | `Test1234!` |
+
+   This account has the Super Admin role, so it has full access to every area of the portal.
 
 ## Project Structure
 
