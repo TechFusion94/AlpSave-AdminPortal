@@ -1,0 +1,45 @@
+services:
+  web:
+    build:
+      context: ./docker/web
+    image: sae-wd004_php:8.4.12-apache-bookworm
+    container_name: "${PROJECT_NAME}_web"
+    ports:
+      - "${WEB_PORT}:80"
+    volumes:
+      - ./storage/site:/var/www/html
+      - ./storage/logs:/var/log/apache2
+      - ./config/error.ini:/usr/local/etc/php/conf.d/error.ini
+      - ./config/apache-override.conf:/etc/apache2/conf-enabled/apache-override.conf
+    depends_on:
+      - db
+    restart: on-failure
+
+  db:
+    image: mysql:8.4.4
+    container_name: "${PROJECT_NAME}_db"
+    user: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: on-failure
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2.2
+    container_name: "${PROJECT_NAME}_phpmyadmin"
+    environment:
+      PMA_HOST: db
+    ports:
+      - "${PMA_PORT}:80"
+    depends_on:
+      - db
+    restart: on-failure
+
+
+volumes:
+  db_data:
+    name: "${PROJECT_NAME}_db_data"

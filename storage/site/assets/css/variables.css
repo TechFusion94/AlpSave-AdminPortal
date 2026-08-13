@@ -1,0 +1,22 @@
+:root {
+    /* Typography */
+    --font-body:           'Inter', sans-serif;        /* body text, inputs, labels */
+    --font-heading:        'Share Tech', sans-serif;   /* headings h1–h3 */
+    --font-size-base:      16px;
+
+    /* Colors */
+    --color-navy:         #1a2b4a;   /* sidebar / primary background */
+    --color-bg:           #F5F7FA;   /* page background */
+    --color-accent:       #00c2b2;   /* general accent and CTA buttons */
+    --color-accent-hover: #009e90;
+    --color-error:        #e53e3e;   /* inline validation errors */
+    --color-success:      #2f9e44;
+    --color-red:          #DA291C;
+    --color-text:         #1a202c;   /* body text */
+    --color-text-muted:   #718096;   /* labels / helper text */
+    --color-white:        #ffffff;
+    --color-border:       #e2e8f0;   /* input borders */
+
+    /* Misc */
+    --border-radius:      8px;
+}

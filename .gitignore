@@ -1,0 +1,15 @@
+# Environment & secrets
+.env
+
+# OS
+.DS_Store
+
+# IDE
+.idea/
+
+# Logs
+storage/logs/*.log
+
+# Runtime uploads
+storage/site/uploads/*
+!storage/site/uploads/.gitkeep
